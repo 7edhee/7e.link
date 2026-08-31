@@ -1,1 +1,229 @@
+/* ==========================================
+   📌 RESET & THEME SETUP
+   ========================================== */
+:root {
+  --bg-color: #0b0f17;
+  --card-bg: #121824;
+  --border-color: #202b3e;
+  --text-main: #f0f4f9;
+  --text-muted: #8a99ad;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.12);
+  --speed: 0.3s;
+}
 
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   📌 STRUCTURE CONTAINER
+   ========================================== */
+/* Wraps your page contents and prevents stretching on wide screens */
+body > div, main, .container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* ==========================================
+   📌 PROFILE HEADER (@7edhee)
+   ========================================== */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 1.5rem 0 0.5rem 0;
+  text-align: center;
+}
+
+/* Sub-title styling (Welcome text / Developer tags) */
+h1 + p, 
+h1 + p + p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+/* Profile Image / Avatar auto-formatting */
+img {
+  display: block;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 2px solid var(--border-color);
+  transition: transform var(--speed) ease, border-color var(--speed) ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+}
+
+/* ==========================================
+   📌 CONTENT SECTIONS & SECTION HEADERS
+   ========================================== */
+h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   📌 WORKS & SERVICES CARDS
+   ========================================== */
+/* Smooth cards for Discord Layouts and Minecraft Dev sections */
+div:has(> h3), .card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+  transition: transform var(--speed) cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color var(--speed) ease, 
+              box-shadow var(--speed) ease;
+}
+
+div:has(> h3):hover, .card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px var(--accent-glow);
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+h3 + p {
+  color: var(--text-muted);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   📌 BUTTONS & INTERACTIVE LINKS
+   ========================================== */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--speed) ease, opacity var(--speed) ease;
+}
+
+/* Custom design for action buttons like "View Details", "Order Now" */
+a[href*="details"], a[href*="order"], a[href*="request"], .btn {
+  display: inline-block;
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform var(--speed) ease, box-shadow var(--speed) ease;
+}
+
+a[href*="details"]:hover, a[href*="order"]:hover, a[href*="request"]:hover, .btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  color: var(--bg-color);
+}
+
+/* Back Link Utility Styling */
+a[href*="back"] {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+a[href*="back"]:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================
+   📌 SOCIAL LINKS LIST
+   ========================================== */
+/* Formats Discord, YouTube, Spotify, Instagram, Behance, Pinterest links */
+div:has(> a[href*="discord"]), 
+div:has(> a[href*="youtube"]),
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Makes each social link look like a clean, clickable plate */
+h2 + a, 
+div:has(> h2) + a,
+.links-container a {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: var(--speed) ease;
+}
+
+h2 + a:hover, 
+.links-container a:hover {
+  background-color: var(--card-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ==========================================
+   📌 FOOTER BRANDING
+   ========================================== */
+footer, p:contains("©") {
+  text-align: center;
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   📌 MOBILE RESPONSIVENESS
+   ========================================== */
+@media (max-width: 640px) {
+  body > div, main, .container {
+    padding: 2.5rem 1.25rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
